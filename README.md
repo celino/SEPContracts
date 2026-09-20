@@ -14,11 +14,15 @@ level.
 
 | Tier | Contract | Needs |
 |---|---|---|
-| 0 | **Deploy a SEP field station in *biome*** — Central Station + one instrument landed in a biome of the home world, basic data returned or transmitted. One per biome. | `SEP_CentralStation`, `SEP_plug` and at least one instrument unlocked |
-| 1 | **Exhaustive seismic survey of *biome*** — Passive Seismic Experiment run to Exhaustive in a biome of the home world. One per biome. | Tier 0 completed once, `SEP_PSE`, a scientist on the roster |
+| 0 | **Deploy a SEP field station in *biome*** — Central Station + one instrument set up on the ground and linked, in a biome of the home world. One per biome. | `SEP_CentralStation`, `SEP_plug` and at least one instrument unlocked |
+| 1 | **Expand the SEP station in *biome* to two instruments** — Central Station + two instruments linked, in a biome of the home world (expanding a tier-0 station counts). One per biome. | Tier 0 completed once, two instruments unlocked |
 
-More tiers (first station off-world, N-instrument stations, exhaustive surveys of the
-other instruments, atmospheric bodies) are planned.
+The contracts are about building and linking the station, not about returning the
+science: a SEP instrument takes 75–100 days to run, so the data is your reward once the
+run finishes, not a contract parameter.
+
+More tiers (first station off-world, atmospheric bodies, long-run surveys such as an
+Exhaustive PSE) are planned.
 
 ## Requirements
 
