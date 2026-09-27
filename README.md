@@ -41,6 +41,11 @@ Exhaustive PSE) are planned.
 
 Copy `GameData/ContractPacks/SEPContracts` into your `GameData`.
 
+## Localization
+All player-facing texts are in `Localization/` (`en-us`, `pt-br`). The contract cfgs call
+`Format("#sepc.key", [ ... ])`, so the biome and body names are passed as `<<1>>`/`<<2>>`.
+To add a language, copy `en-us.cfg`, rename the language node and translate the values.
+
 ## License
 
 MIT.
