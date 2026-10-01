@@ -1,0 +1,52 @@
+name: Validate and package
+
+# GitHub Actions. Checks the pack and builds the zip on every push and PR; on a
+# vX.Y.Z tag it also creates a GitHub release with the zip attached.
+# The in-game test (loading KSP to the main menu) only runs on the homelab's
+# Gitea runner (.gitea/workflows), since KSP can't run on GitHub's runners.
+
+on:
+  push:
+    branches: [ "master" ]
+    tags: [ "v*" ]
+  pull_request:
+    branches: [ "master" ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # creating the release on a tag
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate
+        run: |
+          if [ "${{ github.ref_type }}" = "tag" ]; then
+            python3 tools/validate.py --tag "${{ github.ref_name }}"
+          else
+            python3 tools/validate.py
+          fi
+
+      - name: Package
+        id: package
+        run: echo "zip=$(sh tools/package.sh)" >> "$GITHUB_OUTPUT"
+
+      - name: Upload package
+        uses: actions/upload-artifact@v4
+        with:
+          name: SEPContracts
+          path: ${{ steps.package.outputs.zip }}
+
+      - name: Create release
+        if: github.ref_type == 'tag'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.ref_name }}
+          ZIP: ${{ steps.package.outputs.zip }}
+        run: gh release create "$TAG" "$ZIP" --title "$TAG" --notes "See README.md for what's in this version." --verify-tag
