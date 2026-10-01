@@ -1,0 +1,89 @@
+name: Validate and package
+
+# Gitea Actions. Checks the pack and builds the zip on every push and PR; on a
+# vX.Y.Z tag it also creates a Gitea release with the zip attached.
+# Gitea reads .gitea/workflows and ignores .github/workflows when this folder
+# exists, so the GitHub version can live next to it later.
+
+on:
+  push:
+    branches: [ "master" ]
+    tags: [ "v*" ]
+  pull_request:
+    branches: [ "master" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate
+        run: |
+          if [ "${{ github.ref_type }}" = "tag" ]; then
+            python3 tools/validate.py --tag "${{ github.ref_name }}"
+          else
+            python3 tools/validate.py
+          fi
+
+      - name: Package
+        id: package
+        run: echo "zip=$(sh tools/package.sh)" >> "$GITHUB_OUTPUT"
+
+      # Gitea supports upload-artifact v3 (v4 needs GitHub's artifact service).
+      - name: Upload package
+        uses: actions/upload-artifact@v3
+        with:
+          name: SEPContracts
+          path: ${{ steps.package.outputs.zip }}
+
+      - name: Create release
+        if: github.ref_type == 'tag'
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          API: ${{ github.server_url }}/api/v1/repos/${{ github.repository }}
+          TAG: ${{ github.ref_name }}
+          ZIP: ${{ steps.package.outputs.zip }}
+        run: |
+          id=$(curl -sf -X POST "$API/releases" \
+                 -H "Authorization: token $TOKEN" -H "Content-Type: application/json" \
+                 -d "{\"tag_name\": \"$TAG\", \"name\": \"$TAG\"}" \
+               | python3 -c 'import json, sys; print(json.load(sys.stdin)["id"])')
+          curl -sf -X POST "$API/releases/$id/assets?name=$(basename "$ZIP")" \
+               -H "Authorization: token $TOKEN" -F "attachment=@$ZIP"
+
+  # Loads KSP up to the main menu with this commit's pack and checks the log.
+  # Homelab only: it drives the host's Docker (ksp-moddev image + the KSP-dev
+  # install as a read-only overlay), so the runner must allow the Docker socket
+  # (container.valid_volumes in the act_runner config). KSP can't run on
+  # GitHub's runners, so this job stays on Gitea.
+  ksp-test:
+    needs: build
+    runs-on: ubuntu-latest
+    container:
+      image: docker.gitea.com/runner-images:ubuntu-latest
+      volumes:
+        - /var/run/docker.sock:/var/run/docker.sock
+    env:
+      RUN_ID: ${{ github.run_id }}
+      KSP_GAME: /mnt/projects/projects/ksp/KSP-dev
+      KSP_MODS: /mnt/projects/projects/ksp/mods
+      CI_ROOT: /mnt/projects/projects/ksp/ci
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Load KSP to the main menu
+        run: sh tools/ksp-headless-test.sh
+
+      - name: Check KSP.log
+        run: python3 tools/check_ksp_log.py
+
+      - name: Upload KSP.log
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: KSP.log
+          path: ksp-test/KSP.log
