@@ -56,16 +56,12 @@ jobs:
 
   # Loads KSP up to the main menu with this commit's pack and checks the log.
   # Homelab only: it drives the host's Docker (ksp-moddev image + the KSP-dev
-  # install as a read-only overlay), so the runner must allow the Docker socket
-  # (container.valid_volumes in the act_runner config). KSP can't run on
-  # GitHub's runners, so this job stays on Gitea.
+  # install as a read-only overlay) through the Docker socket that act_runner
+  # mounts into every job by default. KSP can't run on GitHub's runners, so
+  # this job stays on Gitea.
   ksp-test:
     needs: build
     runs-on: ubuntu-latest
-    container:
-      image: docker.gitea.com/runner-images:ubuntu-latest
-      volumes:
-        - /var/run/docker.sock:/var/run/docker.sock
     env:
       RUN_ID: ${{ github.run_id }}
       KSP_GAME: /mnt/projects/projects/ksp/KSP-dev
