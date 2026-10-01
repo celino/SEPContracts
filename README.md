@@ -5,6 +5,7 @@
 <p align="center"><i>Field-tested. Mostly. By Albert Kermin Industries.</i></p>
 
 <p align="center">
+  <a href="https://github.com/celino/SEPContracts/actions/workflows/build.yml"><img alt="Build" src="https://github.com/celino/SEPContracts/actions/workflows/build.yml/badge.svg"></a>
   <img alt="KSP 1.8–1.12" src="https://img.shields.io/badge/KSP-1.8%E2%80%931.12-1e6fb8">
   <img alt="Contract Configurator 2.13.4+" src="https://img.shields.io/badge/Contract%20Configurator-2.13.4%2B-6a3fb5">
   <img alt="Surface Experiment Pack 2.7" src="https://img.shields.io/badge/Surface%20Experiment%20Pack-2.7-d9731f">
@@ -127,17 +128,18 @@ please include their signature. *Qapla'!* / *Mae govannen!*
 
 ## Testing
 
-Every commit is checked automatically: the language files must have the same keys and
-placeholders as English, the cfgs must be well formed, and the pack must load in a real KSP
-1.12.5 install with a large modlist, with every contract loaded by Contract Configurator and
-no errors mentioning the pack. New contracts are also played through in a career save before
-a release.
+Every commit is checked automatically. Here on GitHub, the language files must have the same
+keys and placeholders as English and the cfgs must be well formed. On my own test machine,
+the pack must also load in a real KSP 1.12.5 install with a large modlist, with every contract
+loaded by Contract Configurator and no errors mentioning the pack. New contracts are also
+played through in a career save before a release.
 
 ## How this was made
 
 This pack was written with the help of an AI assistant (Claude). I chose what to build,
 reviewed every change and text, and tested each contract in game before release; any
-mistakes are mine. Bug reports are welcome on the forum thread or on GitHub.
+mistakes are mine. Bug reports are welcome on the forum thread or in
+[GitHub issues](https://github.com/celino/SEPContracts/issues).
 
 ## Credits
 
