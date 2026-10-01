@@ -1,6 +1,4 @@
-<!-- Banner: an in-game screenshot goes here once it's taken (docs/images/banner.png, 1280×400).
-<p align="center"><img src="docs/images/banner.png" alt="A SEP station on the Mun, a kerbal next to it, the lander behind and Kerbin on the horizon" width="100%"></p>
--->
+<p align="center"><img src="docs/images/station-mun.jpg" alt="A SEP Central Station on the Mun with seven instruments linked by cables, two kerbals standing by and the lander behind them" width="100%"></p>
 
 <h1 align="center">Contract Pack: Surface Experiment Package</h1>
 
@@ -58,6 +56,9 @@ anywhere that will hold still.
 | Tier 1 | **Turn *station* into a research campus** | on Kerbin, 2 instruments | a 3rd instrument |
 | Tier 2 | **Go back to *station*** | on the Mun or Minmus, 1 instrument | a 2nd instrument |
 | Tier 3 | **A return trip to *station*** | beyond Kerbin's system, 2 instruments | a 3rd instrument |
+
+<p align="center"><img src="docs/images/contract-pt-br.jpg" alt="The tier-0 contract in Mission Control, in Brazilian Portuguese, offered by Albert Kermin Industries" width="460"><br>
+<i>A tier-0 contract in Mission Control, here in Brazilian Portuguese.</i></p>
 
 Each tier needs the previous one, a landing on the target body, and the right instruments
 unlocked. Vacuum instruments are the Cold-Cathode Ion Gauge and the Solar Wind
