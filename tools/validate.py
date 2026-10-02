@@ -7,6 +7,7 @@
 - braces are balanced in every cfg
 - CONTRACT_TYPE names are unique
 - the .version file is valid JSON, and matches the git tag when run on a tag
+- CHANGELOG.md has a section for the version in the .version file
 
 Usage: python3 tools/validate.py [--tag vX.Y.Z]
 """
@@ -99,6 +100,8 @@ if "--tag" in sys.argv and version:
     tag = sys.argv[sys.argv.index("--tag") + 1]
     if tag.lstrip("v") != version:
         errors.append(f"tag {tag} does not match .version {version}")
+if version and not re.search(rf"^## {re.escape(version)}\b", read("CHANGELOG.md"), re.M):
+    errors.append(f"CHANGELOG.md has no section for {version}")
 
 if errors:
     print("\n".join(errors))

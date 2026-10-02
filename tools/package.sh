@@ -1,6 +1,6 @@
 #!/bin/sh
 # Builds dist/SEPContracts-<version>.zip with GameData/ at the root of the zip
-# (the layout SpaceDock and CKAN expect), plus README.md and LICENSE.
+# (the layout SpaceDock and CKAN expect), plus README.md, CHANGELOG.md and LICENSE.
 set -eu
 cd "$(dirname "$0")/.."
 
@@ -16,7 +16,7 @@ with zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED) as z:
     for root, _, files in os.walk("GameData"):
         for name in sorted(files):
             z.write(os.path.join(root, name))
-    for name in ("README.md", "LICENSE"):
+    for name in ("README.md", "CHANGELOG.md", "LICENSE"):
         z.write(name)
 EOF
 echo "$out"

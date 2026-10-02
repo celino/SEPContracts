@@ -47,9 +47,11 @@ jobs:
           TAG: ${{ github.ref_name }}
           ZIP: ${{ steps.package.outputs.zip }}
         run: |
+          python3 tools/release-notes.py "$TAG" > notes.md
+          body=$(python3 -c 'import json, os; print(json.dumps({"tag_name": os.environ["TAG"], "name": os.environ["TAG"], "body": open("notes.md").read()}))')
           id=$(curl -sf -X POST "$API/releases" \
                  -H "Authorization: token $TOKEN" -H "Content-Type: application/json" \
-                 -d "{\"tag_name\": \"$TAG\", \"name\": \"$TAG\"}" \
+                 -d "$body" \
                | python3 -c 'import json, sys; print(json.load(sys.stdin)["id"])')
           curl -sf -X POST "$API/releases/$id/assets?name=$(basename "$ZIP")" \
                -H "Authorization: token $TOKEN" -F "attachment=@$ZIP"

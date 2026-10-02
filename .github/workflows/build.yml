@@ -49,4 +49,6 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           TAG: ${{ github.ref_name }}
           ZIP: ${{ steps.package.outputs.zip }}
-        run: gh release create "$TAG" "$ZIP" --title "$TAG" --notes "See README.md for what's in this version." --verify-tag
+        run: |
+          python3 tools/release-notes.py "$TAG" > notes.md
+          gh release create "$TAG" "$ZIP" --title "$TAG" --notes-file notes.md --verify-tag

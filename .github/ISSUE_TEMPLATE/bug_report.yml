@@ -1,0 +1,49 @@
+name: Bug report
+description: A contract that never shows up, never completes, or says something odd.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for testing in the field! Albert Kermin Industries reads every report,
+        even the ones that start with "so, about that box on Gilly".
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: Which contract, where, and what you expected instead. A screenshot of the contract helps a lot.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: How to get there
+      description: What you built or did before it happened (which instruments, linked or not, landed where).
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      description: This pack, Contract Configurator, Surface Experiment Pack, KAS and KIS.
+      placeholder: "SEPContracts 0.4.0, CC 2.13.4, SEP 2.7.1, KAS 1.12, KIS 1.29"
+    validations:
+      required: true
+  - type: dropdown
+    id: language
+    attributes:
+      label: Game language
+      options:
+        - English
+        - Português (Brasil)
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: log
+    attributes:
+      label: KSP.log
+      description: |
+        Attach `KSP.log` from the game folder (drag the file here), taken right after the
+        problem, before restarting the game. Lines starting with `[ContractConfigurator]` are
+        the most useful ones.
+    validations:
+      required: true
