@@ -3,6 +3,11 @@
 What changed in each version of Contract Pack: Surface Experiment Package. Albert Kermin
 Industries reads this file before signing anything; so should you.
 
+## Unreleased
+
+- No more copying a file into Contract Configurator by hand: a ModuleManager patch brings in
+  the updated SEP experiment definitions (CC #78 and #79) until a CC release has them.
+
 ## 0.4.0 (2026-10-01)
 
 - **Tier 2:** plant a station on the Mun or Minmus.
