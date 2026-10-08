@@ -7,6 +7,8 @@ Industries reads this file before signing anything; so should you.
 
 - No more copying a file into Contract Configurator by hand: a ModuleManager patch brings in
   the updated SEP experiment definitions (CC #78 and #79) until a CC release has them.
+- Flown in a career save so far: tiers 0 and 1. Tiers 2–4 and the upgrade contracts load and
+  pass the checks, but I haven't played them through yet.
 
 ## 0.4.0 (2026-10-01)
 

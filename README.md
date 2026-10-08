@@ -111,8 +111,9 @@ On paper, yes: tiers 0, 1, 2 and 4 and the upgrades use the home world, its moon
 airless body", so they should follow the pack, and the tier-3 contracts are simply not
 offered when Duna, Eve, Laythe, Ike or Gilly don't exist. In practice, I have only ever flown
 the stock system, so this is untested. If you play OPM, JNSQ, Kcalbeloh or anything else and
-plant a SEP station somewhere I've never been, please send a postcard to the forum thread:
-a screenshot and your `KSP.log`. Albert Kermin will add your world to the brochure, and I'll
+plant a SEP station somewhere I've never been, please send a postcard (a
+[GitHub issue](https://github.com/celino/SEPContracts/issues) will do): a screenshot and
+your `KSP.log`. Albert Kermin will add your world to the brochure, and I'll
 fix whatever broke.
 
 **A kerbal jumped on Gilly and is now in orbit.**
@@ -132,14 +133,23 @@ please include their signature. *Qapla'!* / *Mae govannen!*
 Every commit is checked automatically. Here on GitHub, the language files must have the same
 keys and placeholders as English and the cfgs must be well formed. On my own test machine,
 the pack must also load in a real KSP 1.12.5 install with a large modlist, with every contract
-loaded by Contract Configurator and no errors mentioning the pack. New contracts are also
-played through in a career save before a release.
+loaded by Contract Configurator and no errors mentioning the pack. On top of that, I play the
+contracts through in a career save; the changelog says which ones I have flown so far.
 
 ## How this was made
 
-This pack was written with the help of an AI assistant (Claude). I chose what to build,
-reviewed every change and text, and tested each contract in game before release; any
-mistakes are mine. Bug reports are welcome on the forum thread or in
+Albert Kermin Industries has a flight director and an intern. I'm the flight director.
+The intern is Claudinho, my AI assistant, who drafts contracts faster than Albert can sign
+them.
+
+1. **Flight plan.** We talk the plan over, and nothing gets built until I approve it.
+2. **Assembly.** Claudinho writes most of the configs and texts and runs the automated checks.
+3. **Inspection.** I review every change and every joke, and play each contract through in a
+   career save. Some lines I wrote myself, when Claudinho just couldn't get them.
+4. **Repeat** 2 and 3 until every requirement I set is met. Contracts I haven't flown yet
+   are listed as such in the [changelog](CHANGELOG.md).
+
+Anything that still blows up on the pad is on me. Bug reports are welcome in
 [GitHub issues](https://github.com/celino/SEPContracts/issues).
 
 ## Credits
@@ -150,11 +160,16 @@ mistakes are mine. Bug reports are welcome on the forum thread or in
   all of this possible.
 - The Apollo Lunar Surface Experiments Package, which inspired SEP and, by extension, Albert's
   grandfather.
-- **Claudinho** (Claude, my AI assistant), who wrote much of the configs and the first drafts of
-  the texts, never asked for coffee, and was wrong about the Solar Wind Spectrometer only once.
-  Every line was reviewed and tested by Evandro, who is the one responsible for all of it,
-  mistakes included.
+- **Claudinho**, my AI assistant (Claude, by Anthropic), who wrote much of the configs and the
+  first drafts of the texts, never asked for coffee, and was wrong about the Solar Wind
+  Spectrometer only once. Every line was reviewed and tested by Evandro, who is the one
+  responsible for all of it, mistakes included.
 
 ## License
 
 [MIT](LICENSE).
+
+---
+
+<sub>Made by Evandro, a.k.a. *Fogueteiro da Holanda* 🇧🇷 🇳🇱 ·
+[GitHub](https://github.com/celino) · [Buy me a coffee](https://buymeacoffee.com/fogueteiro_da_holanda)</sub>
