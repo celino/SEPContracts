@@ -81,10 +81,12 @@ Spectrometer.
 
 - **[Contract Configurator](https://github.com/KSP-RO/ContractConfigurator) 2.13.4 or newer, with
   the updated SEP experiment definitions** from
-  [KSP-RO/ContractConfigurator#78](https://github.com/KSP-RO/ContractConfigurator/pull/78).
-  Until a CC release includes them, copy that PR's `science/SurfaceExperimentPackage.cfg` over
-  `GameData/ContractConfigurator/science/SurfaceExperimentPackage.cfg`; older definitions use
-  experiment ids from 2016, so no SEP experiment is ever "available".
+  [KSP-RO/ContractConfigurator#78](https://github.com/KSP-RO/ContractConfigurator/pull/78) and
+  [#79](https://github.com/KSP-RO/ContractConfigurator/pull/79). Until a CC release includes them,
+  download
+  [`SurfaceExperimentPackage.cfg` from CC's master branch](https://raw.githubusercontent.com/KSP-RO/ContractConfigurator/master/GameData/ContractConfigurator/science/SurfaceExperimentPackage.cfg)
+  and copy it over `GameData/ContractConfigurator/science/SurfaceExperimentPackage.cfg`. The file
+  in CC 2.13.4 uses experiment ids from 2016, so no SEP experiment is ever "available".
 - **Surface Experiment Pack 2.7.x**, **KIS**, **KAS 1.x** and the
   **[SEP-KAS1-Patch](https://github.com/celino/SEP-KAS1-Patch)**, so the plugs can link. A linked
   instrument becomes part of the station's vessel, which is what the contracts check.
