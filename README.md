@@ -30,7 +30,7 @@ anywhere that will hold still.
   unlocked and only where SEP lets it run: the Weather Station wants air, the Ion Gauge
   and the Solar Wind Spectrometer want none. Biomes that are mostly water are never picked;
   the station is waterproof, the kerbal is not.
-- **A career-long path.** Six tiers of new stations, from a biome of Kerbin to any airless
+- **A career-long path.** Five tiers of new stations, from a biome of Kerbin to any airless
   rock in the system, plus upgrade contracts that send you back to stations you already
   built.
 - **Building, not waiting.** A SEP instrument takes 75–100 days to run, so the contracts pay
