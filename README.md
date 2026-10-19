@@ -6,6 +6,7 @@
 
 <p align="center">
   <a href="https://github.com/celino/SEPContracts/actions/workflows/build.yml"><img alt="Build" src="https://github.com/celino/SEPContracts/actions/workflows/build.yml/badge.svg"></a>
+  <a href="https://spacedock.info/mod/4716"><img alt="SpaceDock" src="https://img.shields.io/badge/SpaceDock-download-1e6fb8"></a>
   <img alt="KSP 1.8–1.12" src="https://img.shields.io/badge/KSP-1.8%E2%80%931.12-1e6fb8">
   <img alt="Contract Configurator 2.13.4+" src="https://img.shields.io/badge/Contract%20Configurator-2.13.4%2B-6a3fb5">
   <img alt="Surface Experiment Pack 2.7" src="https://img.shields.io/badge/Surface%20Experiment%20Pack-2.7-d9731f">
@@ -92,8 +93,9 @@ Spectrometer.
 
 ## Install
 
-Copy `GameData/ContractPacks/SEPContracts` into your `GameData`. Bill says it "definitely
-goes in the right folder this time".
+Download the zip from [SpaceDock](https://spacedock.info/mod/4716) or [GitHub releases](https://github.com/celino/SEPContracts/releases)
+and copy its `GameData` folder into your KSP folder. Bill says it "definitely goes in the right
+folder this time".
 
 ## FAQ
 
@@ -112,7 +114,8 @@ airless body", so they should follow the pack, and the tier-3 contracts are simp
 offered when Duna, Eve, Laythe, Ike or Gilly don't exist. In practice, I have only ever flown
 the stock system, so this is untested. If you play OPM, JNSQ, Kcalbeloh or anything else and
 plant a SEP station somewhere I've never been, please send a postcard (a
-[GitHub issue](https://github.com/celino/SEPContracts/issues) will do): a screenshot and
+[GitHub issue](https://github.com/celino/SEPContracts/issues) or a post in
+[the forum thread](https://forum.kerbalspaceprogram.com/topic/231969-112x-contract-pack-surface-experiment-package-041-beta-build-sep-science-stations-across-the-system-testers-wanted/) will do): a screenshot and
 your `KSP.log`. Albert Kermin will add your world to the brochure, and I'll
 fix whatever broke.
 
@@ -150,14 +153,16 @@ them.
    are listed as such in the [changelog](CHANGELOG.md).
 
 Anything that still blows up on the pad is on me. Bug reports are welcome in
-[GitHub issues](https://github.com/celino/SEPContracts/issues).
+[GitHub issues](https://github.com/celino/SEPContracts/issues) or on [the forum thread](https://forum.kerbalspaceprogram.com/topic/231969-112x-contract-pack-surface-experiment-package-041-beta-build-sep-science-stations-across-the-system-testers-wanted/).
 
 ## Credits
 
-- **AlbertKermin** and **CobaltWolf** for the Surface Experiment Pack, and **zer0Kerbal** for
-  keeping it alive.
-- The **Contract Configurator** team (nightingale, and KSP-RO today) for the framework that makes
-  all of this possible.
+- **AlbertKermin** and **CobaltWolf**, who made the Surface Experiment Pack, and **DMagic**, who
+  wrote most of its code (with **cake-pie**). **zer0Kerbal** for his SEP fork and fixes (2021–22).
+- **nightingale**, who created **Contract Configurator**, and **KSP-RO**, who maintain it today
+  (thanks, **siimav**, for reviewing and merging the SEP fixes), for the framework that makes all
+  of this possible.
+- **IgorZ** for KIS and KAS, and **sarbian** for ModuleManager.
 - The Apollo Lunar Surface Experiments Package, which inspired SEP and, by extension, Albert's
   grandfather.
 - **Claudinho**, my AI assistant (Claude, by Anthropic), who wrote much of the configs and the
